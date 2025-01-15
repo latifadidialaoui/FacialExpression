@@ -1,8 +1,6 @@
 # Détection des Émotions avec un Modèle CNN
 
-## Introduction
-Ce projet utilise un réseau de neurones convolutifs (CNN) pour détecter les émotions humaines à partir d'images faciales.
-Le modèle est entraîné sur un ensemble de données d'expressions faciales et prédit l'émotion en temps réel via une webcam.
+Ce projet utilise un réseau de neurones convolutifs (CNN) pour détecter les émotions humaines à partir d'images faciales. Le modèle est entraîné sur un ensemble de données d'expressions faciales et prédit l'émotion en temps réel via une webcam.
 
 ## Fonctionnalités
 - Détection des émotions à partir d'images faciales en temps réel.
