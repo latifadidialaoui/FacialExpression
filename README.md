@@ -79,42 +79,43 @@ Les CNN sont conçus pour reconnaître des motifs et des caractéristiques dans 
 
 ## Exemple de Code
 Voici un extrait de code montrant comment le modèle est défini et entraîné :
-# Définition du modèle CNN
+ #Définition du modèle CNN
 model = Sequential()
 model.add(Input(shape=(48, 48, 1)))
-# ... (ajout des couches)
+#...(ajout des couches)
 model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
 model.fit(x=train_generator, epochs=64, validation_data=validation_generator)
 En résumé, l'utilisation d'un CNN pour ce projet permet de tirer parti de la puissance des réseaux de neurones profonds pour effectuer une tâche complexe de classification d'images de manière efficace et précise.
 
+# Détection d'Émotions Faciales en Temps Réel
+
 ## Exécution de l'Application
-Le script principal pour la détection des émotions en temps réel à partir d'une caméra utilise OpenCV et le modèle pré-entraîné. Voici un aperçu de son fonctionnement :
+
+Le script principal utilise OpenCV et un modèle pré-entraîné pour détecter les émotions faciales en temps réel à partir d'une caméra.
+
+### Code Principal (Exemple)
 
 ```python
-# Importation des bibliothèques nécessaires
 import numpy as np
 import cv2
 from tensorflow.keras.models import model_from_json
 
-# Classe pour la prédiction des émotions
 class FacialExpression(object):
     EMOTIONS = ["Angry", "Disgust", "Fear", "Happy", "Neutral", "Sad", "Surprise"]
-    
+
     def __init__(self, model_json_file, model_weights_file):
-        # Chargement de l'architecture du modèle à partir d'un fichier JSON
         with open(model_json_file, "r") as file:
             loaded_model_json = file.read()
             self.loaded_model = model_from_json(loaded_model_json)
-
-        # Chargement des poids du modèle depuis un fichier H5
         self.loaded_model.load_weights(model_weights_file)
         self.loaded_model.make_predict_function()
-   
+
     def predict_emotion(self, img):
-        # Prédiction de l'émotion à partir de l'image fournie
         self.pred = self.loaded_model.predict(img)
         return FacialExpression.EMOTIONS[np.argmax(self.pred)]
 
+# ... (reste du code pour l'initialisation de la caméra, la boucle principale, etc.)
+         
 ##Fonctionnement du Script
    #Chargement du Modèle :
 Le modèle est chargé à partir d'un fichier JSON (model.json), qui contient l'architecture du modèle CNN.
