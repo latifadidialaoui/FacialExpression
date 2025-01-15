@@ -79,12 +79,62 @@ Les CNN sont conçus pour reconnaître des motifs et des caractéristiques dans 
 
 ## Exemple de Code
 Voici un extrait de code montrant comment le modèle est défini et entraîné :
- #Définition du modèle CNN
+#Définition du modèle CNN
 model = Sequential()
 model.add(Input(shape=(48, 48, 1)))
 #...(ajout des couches)
 model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
 model.fit(x=train_generator, epochs=64, validation_data=validation_generator)
 En résumé, l'utilisation d'un CNN pour ce projet permet de tirer parti de la puissance des réseaux de neurones profonds pour effectuer une tâche complexe de classification d'images de manière efficace et précise.
+
+#  Détection d'Émotions Faciales en Temps Réel
+
+## Exécution de l'Application
+
+Le script principal utilise OpenCV et un modèle pré-entraîné pour détecter les émotions faciales en temps réel à partir d'une caméra.
+
+### Fonctionnement du Script
+   # Chargement du Modèle :
+Le modèle est chargé à partir d'un fichier JSON (model.json), qui contient l'architecture du modèle CNN.
+Les poids du modèle, qui ont été sauvegardés dans un fichier H5 (model_weights.weights.h5), sont également chargés.
+Ces poids représentent les paramètres appris par le modèle au cours de l'entraînement.
+   # Détection Faciale :
+Le script utilise un classificateur en cascade de Haar pour détecter les visages dans le flux vidéo de la webcam.
+Une fois un visage détecté, il est redimensionné à 48x48 pixels pour correspondre à l'entrée du modèle.
+   #  Prédiction :
+L'image du visage est passée au modèle pour prédire l'émotion, qui est ensuite affichée en temps réel sur la vidéo de la webcam.
+Les émotions sont affichées sur le cadre entourant le visage détecté, et un rectangle est dessiné autour de celui-ci pour indiquer la zone d'intérêt.
+   # Interface Utilisateur :
+Une fenêtre s'ouvre pour afficher la vidéo de la webcam avec les émotions détectées.
+Appuyez sur q pour quitter l'application.
+
+### Fichiers du Modèle
+Fichier JSON (model.json) :
+Ce fichier contient l'architecture du modèle CNN sous forme JSON. Il décrit la disposition des couches, les types de couches, et les configurations nécessaires pour reconstruire le modèle.
+Fichier H5 (model_weights.weights.h5) :
+Ce fichier stocke les poids du modèle, c'est-à-dire les paramètres qui ont été appris lors de l'entraînement.
+Les poids sont essentiels pour que le modèle fasse des prédictions précises, car ils déterminent comment chaque neurone contribue à l'output final basé sur l'entrée.
+Ces fichiers sont cruciaux pour la reconstruction et l'utilisation du modèle une fois qu'il a été entraîné, permettant ainsi une utilisation facile et rapide pour les prédictions en temps réel.
+
+Conclusion
+Ce script offre une solution simple et efficace pour la détection des émotions en temps réel, en utilisant un modèle de deep learning entraîné sur un ensemble de données d'expressions faciales.
+
+## Démonstration Vidéo
+
+Pour voir le projet en action, vous pouvez visionner la démonstration vidéo ci-dessous. Cette vidéo montre comment l'application détecte les émotions en temps réel à partir des expressions faciales capturées par la webcam.
+
+Regarder la Démonstration Vidéo
+
+
+https://github.com/user-attachments/assets/77ad2ed6-8511-4804-be31-3beca84f7a6f
+
+
+
+### Ce que vous verrez dans la vidéo :
+- L'interface utilisateur en temps réel avec la vidéo de la webcam.
+- La détection des visages et l'affichage des émotions prédites sur l'écran.
+- Un aperçu du fonctionnement de l'algorithme, y compris comment les émotions sont reconnues et affichées.
+
+N'hésitez pas à poser des questions ou à laisser des commentaires sur la vidéo !
 
 
