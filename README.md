@@ -125,11 +125,9 @@ Ces fichiers sont cruciaux pour la reconstruction et l'utilisation du modèle un
 ## Conclusion
 Ce script offre une solution simple et efficace pour la détection des émotions en temps réel, en utilisant un modèle de deep learning entraîné sur un ensemble de données d'expressions faciales.
 
-## Démonstration Vidéo
+## Démonstration
 
 Pour voir le projet en action, vous pouvez visionner la démonstration vidéo ci-dessous. Cette vidéo montre comment l'application détecte les émotions en temps réel à partir des expressions faciales capturées par la webcam.
-
-Regarder la Démonstration Vidéo
 
 https://github.com/user-attachments/assets/77ad2ed6-8511-4804-be31-3beca84f7a6f
 
@@ -138,7 +136,4 @@ https://github.com/user-attachments/assets/77ad2ed6-8511-4804-be31-3beca84f7a6f
 - L'interface utilisateur en temps réel avec la vidéo de la webcam.
 - La détection des visages et l'affichage des émotions prédites sur l'écran.
 - Un aperçu du fonctionnement de l'algorithme, y compris comment les émotions sont reconnues et affichées.
-
-N'hésitez pas à poser des questions ou à laisser des commentaires sur la vidéo !
-
 
